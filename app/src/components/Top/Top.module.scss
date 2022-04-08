@@ -1,0 +1,25 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftside {
+}
+
+.title {
+  display: block;
+  font-size: 26px;
+  margin-bottom: 5px;
+  outline: none;
+}
+.progress {
+  width: 120px;
+  height: 5px;
+  background-color: pink;
+}
+
+.progressBar {
+  height: 5px;
+  background-color: red;
+}

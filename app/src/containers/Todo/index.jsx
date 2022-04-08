@@ -1,6 +1,8 @@
 import React from "react";
 
+import Top from "../../components/Top";
 import TodoList from "../../components/TodoList";
+import Bottom from "../../components/Bottom";
 
 const array = [
   {
@@ -18,7 +20,13 @@ const array = [
 ];
 
 const Todo = () => {
-  return <TodoList array={array} />;
+  return (
+    <>
+      <Top />
+      <TodoList array={array} />
+      <Bottom />
+    </>
+  );
 };
 
 export default Todo;
