@@ -1,9 +1,28 @@
-@import 'fonts';
-@import 'vars';
-@import 'normalize';
+@import "fonts";
+@import "vars";
+@import "normalize";
 @import "libs";
-@import 'global';
+@import "global";
 
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../images/content/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 15px;
+}
 
-@import 'media';
+@import "media";

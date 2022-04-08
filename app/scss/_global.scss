@@ -12,7 +12,7 @@ body {
   flex-grow: 1;
 }
 
-.visually-hidden {
+.visuallyHidden {
   position: absolute;
   clip: rect(0 0 0 0);
   width: 1px;
@@ -21,6 +21,6 @@ body {
   overflow: hidden;
 }
 
-.hide-overflow {
+.hideOverflow {
   overflow: hidden;
 }
