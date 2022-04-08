@@ -27,7 +27,7 @@ if (process.env.SERVE) {
 module.exports = {
   mode: mode,
 
-  entry: "./app/js/index.js",
+  entry: "./app/src/index.js",
 
   output: {
     path: path.resolve(__dirname, "dist"),
