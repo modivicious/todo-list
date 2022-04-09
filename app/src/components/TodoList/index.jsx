@@ -4,11 +4,16 @@ import TodoItem from "../TodoItem";
 
 import styles from "./TodoList.module.scss";
 
-const TodoList = ({ array }) => {
+const TodoList = ({ items, onDelete, onComplete }) => {
   return (
     <ul className={styles.list}>
-      {array.map((item) => (
-        <TodoItem key={item.id} item={item} />
+      {items.map((item) => (
+        <TodoItem
+          key={item.id + item.text}
+          item={item}
+          onDelete={onDelete}
+          onComplete={onComplete}
+        />
       ))}
     </ul>
   );

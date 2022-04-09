@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import styles from "./TodoItem.module.scss";
 
-const TodoItem = ({ item }) => {
+const TodoItem = ({ item, onDelete, onComplete }) => {
   const [inputValue, setInputValue] = useState(item.text);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -19,9 +19,10 @@ const TodoItem = ({ item }) => {
       <div className={styles.checkboxContainer}>
         <input
           className={`${styles.realCheckbox} visuallyHidden`}
+          id={`check${item.id}`}
           checked={isChecked}
           onChange={onCheck}
-          id={`check${item.id}`}
+          onClick={() => onComplete(item.id)}
           type="checkbox"
         />
         <label
@@ -36,7 +37,11 @@ const TodoItem = ({ item }) => {
         onChange={onTextChange}
         type="text"
       />
-      <button className={styles.delete} aria-label="Delete" />
+      <button
+        className={styles.delete}
+        onClick={() => onDelete(item.id)}
+        aria-label="Delete"
+      />
     </li>
   );
 };
