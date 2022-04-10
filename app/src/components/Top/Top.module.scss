@@ -9,7 +9,7 @@
   font-size: 26px;
   margin-bottom: 5px;
   outline: none;
-  &::placeholder{
+  &::placeholder {
     color: #cdcdcd;
   }
 }
@@ -18,11 +18,18 @@
   font-size: 14px;
 }
 
+.progressContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .progress {
   width: 120px;
   height: 5px;
   border-radius: 2px;
   background-color: rgba(#e04545, 20%);
+  margin-bottom: 5px;
 }
 
 .progressBar {
@@ -30,4 +37,8 @@
   background-color: #e04545;
   border-radius: 2px;
   transition: all 0.35s ease-out;
+}
+
+.percentage {
+  font-size: 12px;
 }

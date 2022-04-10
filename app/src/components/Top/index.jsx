@@ -23,11 +23,14 @@ const Top = ({ items }) => {
             : `you have no tasks`}
         </span>
       </div>
-      <div className={styles.progress}>
-        <div
-          className={styles.progressBar}
-          style={{ width: `${percentageOfCompleted}%` }}
-        />
+      <div className={styles.progressContainer}>
+        <div className={styles.progress}>
+          <div
+            className={styles.progressBar}
+            style={{ width: `${percentageOfCompleted}%` }}
+          />
+        </div>
+        <span className={styles.percentage}>{percentageOfCompleted}%</span>
       </div>
     </div>
   );
