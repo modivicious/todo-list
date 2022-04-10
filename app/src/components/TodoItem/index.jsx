@@ -15,7 +15,7 @@ const TodoItem = ({ item, onDelete, onComplete }) => {
   };
 
   return (
-    <li className={styles.item}>
+    <li className={`${styles.item} ${isChecked ? styles.completed : ""}`}>
       <div className={styles.checkboxContainer}>
         <input
           className={`${styles.realCheckbox} visuallyHidden`}

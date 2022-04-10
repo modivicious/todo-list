@@ -17,7 +17,7 @@ const Top = ({ items }) => {
           type="text"
           maxLength={40}
         />
-        <span className={styles.tasks}>
+        <span className={styles.tasksQuantity}>
           {items.length > 0
             ? `${items.length} tasks left`
             : `you have no tasks`}

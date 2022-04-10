@@ -4,22 +4,30 @@
   align-items: center;
 }
 
-.leftside {
-}
-
 .title {
   display: block;
   font-size: 26px;
   margin-bottom: 5px;
   outline: none;
+  &::placeholder{
+    color: #cdcdcd;
+  }
 }
+
+.tasksQuantity {
+  font-size: 14px;
+}
+
 .progress {
   width: 120px;
   height: 5px;
-  background-color: pink;
+  border-radius: 2px;
+  background-color: rgba(#e04545, 20%);
 }
 
 .progressBar {
   height: 5px;
-  background-color: red;
+  background-color: #e04545;
+  border-radius: 2px;
+  transition: all 0.35s ease-out;
 }

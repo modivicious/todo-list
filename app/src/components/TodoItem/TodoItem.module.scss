@@ -1,7 +1,27 @@
 .item {
   display: flex;
-  &:not(:last-child) {
-    margin-bottom: 20px;
+  padding: 10px 0;
+  transition: opacity 0.15s ease-out;
+  &:hover {
+    background: linear-gradient(90deg, #ffffff 0%, #fafafa 50%, #ffffff 100%);
+    .text {
+      text-decoration: none;
+    }
+  }
+}
+
+.completed {
+  opacity: 0.4;
+  .text {
+    text-decoration: line-through;
+  }
+  .realCheckbox {
+    &:checked + .styledCheckbox::before {
+      content: "";
+    }
+    &:checked + .styledCheckbox {
+      background-image: url("../../../images/icons/check.svg");
+    }
   }
 }
 
@@ -10,15 +30,10 @@
   height: 25px;
   border-radius: 7px;
   border: 1px solid #222;
+  transition: border 0.2s ease-out;
 }
 
 .realCheckbox {
-  &:checked + .styledCheckbox {
-    background-image: url("../../../images/icons/check.svg");
-  }
-  &:checked + .styledCheckbox::before {
-    content: "";
-  }
   &:hover + .styledCheckbox::before,
   &:focus-visible + .styledCheckbox::before {
     transform: translateY(4%) scale(1);
@@ -32,6 +47,7 @@
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
   &::before {
     content: url("../../../images/icons/check.svg");
     will-change: transform;
@@ -43,9 +59,9 @@
 .text {
   width: 660px;
   padding-left: 15px;
+  transition: color 0.2s;
   &:focus {
     outline: none;
-    color: red;
   }
 }
 
@@ -60,10 +76,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: pink;
+    background-color: #ec9999;
     border-radius: 50%;
     transform: scale(0);
-    transition: all 0.3s ease-out;
+    transition: transform 0.3s ease-out;
     z-index: 0;
   }
   &::after {
@@ -75,7 +91,11 @@
     background-repeat: no-repeat;
     background-position: center;
   }
-  &:hover::before {
+  &:focus {
+    outline: none;
+  }
+  &:hover::before,
+  &:focus-visible::before {
     transform: scale(1);
   }
 }
