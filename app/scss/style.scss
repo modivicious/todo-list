@@ -15,6 +15,16 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(#fff, 0.1);
+  }
 }
 
 .container {
@@ -24,6 +34,8 @@
   padding: 50px;
   margin-top: 80px;
   border-radius: 20px;
+  position: relative;
+  box-shadow: 0 0 20px 5px rgba(#222, 0.2);
 }
 
 @import "media";
