@@ -4,29 +4,21 @@ import styles from "./TodoItem.module.scss";
 
 const TodoItem = ({ item, onDelete, onComplete, onEdit }) => {
   const [inputValue, setInputValue] = useState(item.text);
-  const [isChecked, setIsChecked] = useState(false);
 
   const onTextChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  const onBlur = (e) => {
-    onEdit(item.id, e.target.value);
-  };
-
-  const onCheck = () => {
-    setIsChecked(!isChecked);
-  };
-
   return (
-    <li className={`${styles.item} ${isChecked ? styles.completed : ""}`}>
+    <li
+      className={`${styles.item} ${item.isCompleted ? styles.completed : ""}`}
+    >
       <div className={styles.checkboxContainer}>
         <input
           className={`${styles.realCheckbox} visuallyHidden`}
           id={`check${item.id}`}
-          checked={isChecked}
-          onChange={onCheck}
-          onClick={() => onComplete(item.id)}
+          checked={item.isCompleted}
+          onChange={() => onComplete(item.id)}
           type="checkbox"
         />
         <label
@@ -39,7 +31,9 @@ const TodoItem = ({ item, onDelete, onComplete, onEdit }) => {
         className={styles.text}
         value={inputValue}
         onChange={onTextChange}
-        onBlur={onBlur}
+        onBlur={(e) => {
+          onEdit(item.id, e.target.value);
+        }}
         type="text"
       />
       <button
