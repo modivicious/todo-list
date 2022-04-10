@@ -1,22 +1,17 @@
-const TASKS = [
-  {
-    id: 1,
-    text: "Lorem ipsum dolor sit amet.",
-    isCompleted: false,
-  },
-  {
-    id: 2,
-    text: "Lorem ipsum dolor",
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    text: "Lorem ipsum",
-    isCompleted: false,
-  },
-];
+import { load } from 'redux-localstorage-simple';
 
-const tasks = (state = TASKS, { type, id, text, isCompleted = false }) => {
+let TASKS = load({
+  states: ["tasks"],
+  namespace: 'todo-list',
+});
+
+if (!TASKS || !TASKS.tasks || !TASKS.tasks.length) {
+  TASKS = {
+    tasks: [],
+  }
+}
+
+const tasks = (state = TASKS.tasks, { type, id, text, isCompleted = false }) => {
   switch (type) {
     case "ADD_TASK":
       return [
