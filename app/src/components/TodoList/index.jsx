@@ -4,7 +4,7 @@ import TodoItem from "../TodoItem";
 
 import styles from "./TodoList.module.scss";
 
-const TodoList = ({ items, onDelete, onComplete }) => {
+const TodoList = ({ items, onDelete, onComplete, onEdit }) => {
   return (
     <ul className={styles.list}>
       {items.map((item) => (
@@ -13,6 +13,7 @@ const TodoList = ({ items, onDelete, onComplete }) => {
           item={item}
           onDelete={onDelete}
           onComplete={onComplete}
+          onEdit={onEdit}
         />
       ))}
     </ul>

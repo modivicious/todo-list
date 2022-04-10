@@ -26,6 +26,10 @@ const Todo = () => {
     dispatch({ type: "COMPLETE_TASK", id: id });
   };
 
+  const onEdit = (id, text) => {
+    dispatch({ type: "EDIT_TASK", id: id, text: text });
+  };
+
   const onClear = () => {
     dispatch({ type: "CLEAR_TASKS" });
   };
@@ -33,7 +37,12 @@ const Todo = () => {
   return (
     <>
       <Top items={tasks} />
-      <TodoList items={tasks} onDelete={onDelete} onComplete={onComplete} />
+      <TodoList
+        items={tasks}
+        onDelete={onDelete}
+        onComplete={onComplete}
+        onEdit={onEdit}
+      />
       <Bottom onAdd={onAdd} onClear={onClear} />
     </>
   );

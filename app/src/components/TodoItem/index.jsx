@@ -2,12 +2,16 @@ import React, { useState } from "react";
 
 import styles from "./TodoItem.module.scss";
 
-const TodoItem = ({ item, onDelete, onComplete }) => {
+const TodoItem = ({ item, onDelete, onComplete, onEdit }) => {
   const [inputValue, setInputValue] = useState(item.text);
   const [isChecked, setIsChecked] = useState(false);
 
   const onTextChange = (e) => {
     setInputValue(e.target.value);
+  };
+
+  const onBlur = (e) => {
+    onEdit(item.id, e.target.value);
   };
 
   const onCheck = () => {
@@ -35,6 +39,7 @@ const TodoItem = ({ item, onDelete, onComplete }) => {
         className={styles.text}
         value={inputValue}
         onChange={onTextChange}
+        onBlur={onBlur}
         type="text"
       />
       <button

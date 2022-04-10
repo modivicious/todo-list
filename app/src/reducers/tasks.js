@@ -26,7 +26,13 @@ const tasks = (state = TASKS.tasks, { type, id, text, isCompleted = false }) => 
     case "COMPLETE_TASK":
       return [...state].map(task => {
         if (task.id === id)
-          task.isCompleted = !task.isCompleted
+          task.isCompleted = !task.isCompleted;
+        return task;
+      });
+    case "EDIT_TASK":
+      return [...state].map(task => {
+        if (task.id === id)
+          task.text = text;
         return task;
       });
     case "CLEAR_TASKS":
