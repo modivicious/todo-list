@@ -4,10 +4,11 @@ import styles from "./Top.module.scss";
 
 const Top = ({ items }) => {
   const percentageOfCompleted =
-    (
-      items.reduce((acc, item) => (item.isCompleted ? (acc += 1) : acc), 0) /
-      items.length
-    ).toFixed(2) * 100 || 0;
+    Math.round(
+      (items.reduce((acc, item) => (item.isCompleted ? (acc += 1) : acc), 0) /
+        items.length) *
+        100
+    ) || 0;
   return (
     <div className={styles.top}>
       <div className={styles.leftside}>
