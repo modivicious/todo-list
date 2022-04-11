@@ -16,7 +16,8 @@ const TodoItem = ({ item, onDelete, onComplete, onEdit, task }) => {
       const nextElem = document.querySelector(
         `[data-task="${currentIndex + 1}"]`
       );
-      nextElem && nextElem.focus();
+      if (nextElem) nextElem.focus();
+      else if (e.key === "Enter") e.target.blur(); // save in localStorage on enter
     }
     if (e.key === "ArrowUp") {
       e.preventDefault();
