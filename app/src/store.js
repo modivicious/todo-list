@@ -8,10 +8,8 @@ const configStore = (preloadedState) =>
     rootReducer,
     preloadedState,
     applyMiddleware(
-      save({
-        states: ["tasks"],
-        namespace: "todo-list",
-      })
+      save({ states: ["tasks"], namespace: "todo-list", }),
+      save({ states: ["title"], namespace: "todo-title", })
     )
   );
 

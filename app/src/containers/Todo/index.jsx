@@ -7,6 +7,7 @@ import Bottom from "../../components/Bottom";
 
 const Todo = () => {
   const tasks = useSelector((state) => state.tasks);
+  const title = useSelector((state) => state.title)[0].listTitle || "";
   const dispatch = useDispatch();
 
   const onAdd = () => {
@@ -34,9 +35,13 @@ const Todo = () => {
     dispatch({ type: "CLEAR_TASKS" });
   };
 
+  const onTitleChange = (newTitle) => {
+    dispatch({ type: "CHANGE_TITLE", newTitle: newTitle });
+  };
+
   return (
     <>
-      <Top items={tasks} />
+      <Top items={tasks} title={title} onTitleChange={onTitleChange} />
       <TodoList
         items={tasks}
         onDelete={onDelete}
