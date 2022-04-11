@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
+import useDocumentTitle from "../../hooks/useDocumentTitle";
+
 import styles from "./Top.module.scss";
 
 const Top = ({ items, title, onTitleChange }) => {
+  useDocumentTitle(title);
+
   const [listTitle, setListTitle] = useState(title);
 
   const percentageOfCompleted =
