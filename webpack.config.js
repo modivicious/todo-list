@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 let mode = "development";
 let target = "web";
@@ -11,8 +12,22 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: "./app/index.html",
   }),
-  new MiniCssExtractPlugin(),
+  new MiniCssExtractPlugin({
+    filename: "[name].[contenthash].css"
+  }),
   new CleanWebpackPlugin(),
+  new CopyPlugin({
+    patterns: [
+      {
+        from: "./app/images/favicon/*",
+        to: "images/favicon/[name][ext]"
+      },
+      {
+        from: "./app/*.json",
+        to: "[name].json"
+      }
+    ],
+  }),
 ];
 
 if (process.env.NODE_ENV === "production") {
@@ -31,7 +46,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "[hash][ext][query]",
+    filename: "[name].[contenthash].js",
+    assetModuleFilename: "[name][hash][ext][query]",
     clean: true,
   },
 
