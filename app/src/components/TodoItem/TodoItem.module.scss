@@ -63,6 +63,13 @@
   &:focus {
     outline: none;
   }
+  &::placeholder {
+    visibility: hidden;
+    color: #bfbfbf;
+  }
+  &:focus::placeholder {
+    visibility: visible;
+  }
 }
 
 .delete {

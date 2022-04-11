@@ -55,6 +55,7 @@ const TodoItem = ({ item, onDelete, onComplete, onEdit, task }) => {
           onEdit(item.id, e.target.value);
         }}
         onKeyDown={(e) => focusToItem(e)}
+        placeholder="You can navigate with Enter or arrow keys"
         type="text"
       />
       <button
