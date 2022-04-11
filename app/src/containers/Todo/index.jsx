@@ -1,6 +1,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import {
+  addTask,
+  deleteTask,
+  completeTask,
+  editTask,
+  clearTasks,
+  changeTitle,
+} from "../../actions/actionCreator";
+
 import Top from "../../components/Top";
 import TodoList from "../../components/TodoList";
 import Bottom from "../../components/Bottom";
@@ -11,32 +20,27 @@ const Todo = () => {
   const dispatch = useDispatch();
 
   const onAdd = () => {
-    dispatch({
-      type: "ADD_TASK",
-      id: +Date.now(),
-      text: "",
-      isSelected: false,
-    });
+    dispatch(addTask());
   };
 
   const onDelete = (id) => {
-    dispatch({ type: "DELETE_TASK", id: id });
+    dispatch(deleteTask(id));
   };
 
   const onComplete = (id) => {
-    dispatch({ type: "COMPLETE_TASK", id: id });
+    dispatch(completeTask(id));
   };
 
   const onEdit = (id, text) => {
-    dispatch({ type: "EDIT_TASK", id: id, text: text });
+    dispatch(editTask(id, text));
   };
 
   const onClear = () => {
-    dispatch({ type: "CLEAR_TASKS" });
+    dispatch(clearTasks());
   };
 
   const onTitleChange = (newTitle) => {
-    dispatch({ type: "CHANGE_TITLE", newTitle: newTitle });
+    dispatch(changeTitle(newTitle));
   };
 
   return (

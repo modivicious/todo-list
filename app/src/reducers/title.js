@@ -1,5 +1,7 @@
 import { load } from 'redux-localstorage-simple';
 
+import { CHANGE_TITLE } from "../constants"
+
 let TITLE = load({
   states: ["title"],
   namespace: 'todo-title',
@@ -15,9 +17,9 @@ if (!TITLE || !TITLE.title || !TITLE.title.length) {
   }
 }
 
-const title = (state = TITLE.title, { newTitle, type }) => {
+const title = (state = TITLE.title, { type, newTitle }) => {
   switch (type) {
-    case "CHANGE_TITLE":
+    case CHANGE_TITLE:
       return [...state].map((task) => {
         if (task.listTitle !== undefined)
           task.listTitle = newTitle;
