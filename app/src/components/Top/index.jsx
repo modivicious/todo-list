@@ -35,7 +35,7 @@ const Top = ({ items, title, onTitleChange }) => {
           onBlur={(e) => onTitleChange(e.target.value)}
           onKeyDown={(e) => onEnter(e)}
           type="text"
-          maxLength={40}
+          maxLength={22}
         />
         <span className={styles.tasksQuantity}>
           {items.length > 0

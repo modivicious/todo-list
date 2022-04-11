@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -35,4 +37,5 @@
   align-items: center;
   font-size: 13px;
   color: #bfbfbf;
+  text-align: center;
 }
