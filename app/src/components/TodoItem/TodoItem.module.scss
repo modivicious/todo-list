@@ -65,10 +65,12 @@
   }
   &::placeholder {
     visibility: hidden;
+    opacity: 0;
     color: #bfbfbf;
   }
   &:focus::placeholder {
     visibility: visible;
+    opacity: 1;
   }
 }
 
