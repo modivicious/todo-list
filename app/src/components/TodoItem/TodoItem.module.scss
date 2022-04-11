@@ -3,7 +3,7 @@
   padding: 10px 0;
   transition: opacity 0.15s ease-out;
   &:hover {
-    background: linear-gradient(90deg, #ffffff 0%, #fafafa 50%, #ffffff 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
     .text {
       text-decoration: none;
     }
@@ -30,7 +30,6 @@
   height: 25px;
   border-radius: 7px;
   border: 1px solid #222;
-  transition: border 0.2s ease-out;
 }
 
 .realCheckbox {
@@ -59,9 +58,9 @@
 .text {
   width: 660px;
   padding-left: 15px;
-  transition: color 0.2s;
   &:focus {
     outline: none;
+    text-decoration: none;
   }
   &::placeholder {
     visibility: hidden;

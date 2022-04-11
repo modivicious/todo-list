@@ -39,8 +39,8 @@ const Top = ({ items, title, onTitleChange }) => {
         />
         <span className={styles.tasksQuantity}>
           {items.length > 0
-            ? `${items.length} tasks left`
-            : `you have no tasks`}
+            ? `You have ${items.length} tasks`
+            : `You have no tasks`}
         </span>
       </div>
       <div className={styles.progressContainer}>
